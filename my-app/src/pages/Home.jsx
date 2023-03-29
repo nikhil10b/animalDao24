@@ -56,6 +56,7 @@ const Home = () => {
       {arrayData.map((item) => (
         <InfoCard
           id={item.id}
+          key={item.id}
           image={item.image}
           heading={item.heading}
           info={item.info}

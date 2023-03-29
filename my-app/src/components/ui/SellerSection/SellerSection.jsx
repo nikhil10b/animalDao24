@@ -13,7 +13,7 @@ const SellerSection = () => {
         <Row className="d-flex align-items-center justify-content-center">
           <Col lg="12" className="mb-5">
             <div className="seller__section-title">
-              <h3 style={{textAlign:"center"}}>Top Adopters</h3>
+              <h3 style={{ textAlign: "center" }}>Top Adopters</h3>
             </div>
           </Col>
 
@@ -36,7 +36,7 @@ const SellerSection = () => {
         <Row className="d-flex align-items-center justify-content-center">
           <Col lg="12" className="mb-5">
             <div className="seller__section-title">
-              <h3 style={{textAlign:"center"}}>Top Donors</h3>
+              <h3 style={{ textAlign: "center" }}>Top Donors</h3>
             </div>
           </Col>
 
@@ -59,7 +59,7 @@ const SellerSection = () => {
         <Row className="d-flex align-items-center justify-content-center">
           <Col lg="12" className="mb-5">
             <div className="seller__section-title">
-              <h3 style={{textAlign:"center"}}>Top Contributors</h3>
+              <h3 style={{ textAlign: "center" }}>Top Contributors</h3>
             </div>
           </Col>
 
@@ -82,7 +82,7 @@ const SellerSection = () => {
         <Row className="d-flex align-items-center justify-content-center">
           <Col lg="12" className="mb-5">
             <div className="seller__section-title">
-              <h3 style={{textAlign:"center"}}>Top Designers</h3>
+              <h3 style={{ textAlign: "center" }}>Top Designers</h3>
             </div>
           </Col>
 

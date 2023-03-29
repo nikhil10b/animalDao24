@@ -25,7 +25,7 @@ const Market = () => {
       const data = snapshot.val();
       setFormData(data);
     });
-    console.log(formData);
+    // console.log(formData);
   }, [reload, formData]);
 
   // const handleSort = (e) => {

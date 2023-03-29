@@ -22,7 +22,7 @@ const Adopt = () => {
       const data = snapshot.val();
       setFormData(data);
     });
-    console.log(formData);
+    // console.log(formData);
   }, [reload, formData]);
 
   return (

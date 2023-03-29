@@ -2,27 +2,26 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
 
-import { onValue, ref } from 'firebase/database';
-import { db } from '../../../firebase';
+import { onValue, ref } from "firebase/database";
+import { db } from "../../../firebase";
 
 import NftCard from "../NftCard/NftCard";
 
 import "./liveAuction.css";
 
 const LiveAuction = () => {
-
   const [reload, setReload] = useState(true);
   const [formData, setFormData] = useState([]);
-  if(formData===[]){
-    setReload(false)
+  if (formData === []) {
+    setReload(false);
   }
-  useEffect(() => { 
-    onValue(ref(db , '/nft/'),(snapshot)=>{
-      const data = snapshot.val();
-      setFormData(data);
-    });
-    console.log(formData);
-  }, [reload , formData]);
+  // useEffect(() => {
+  //   onValue(ref(db , '/nft/'),(snapshot)=>{
+  //     const data = snapshot.val();
+  //     setFormData(data);
+  //   });
+  //   // console.log(formData);
+  // }, [reload , formData]);
 
   return (
     <section>

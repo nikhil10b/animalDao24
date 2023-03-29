@@ -119,7 +119,7 @@ const Header = () => {
     });
 
     return () => {
-      window.removeEventListener("scroll");
+      window.removeEventListener("scroll",null);
     };
   }, []);
   // const truncate = (input) =>
@@ -147,8 +147,8 @@ const Header = () => {
                 <li className="nav__item" key={index}>
                   <NavLink
                     to={item.url}
-                    className={(navClass) =>
-                      navClass.isActive ? "active" : ""
+                    className={(navclass) =>
+                      navclass.isActive ? "active" : ""
                     }
                   >
                     {item.display}
@@ -174,7 +174,7 @@ const Header = () => {
                 onClick={disconnectAccount}
               >
                 <span>
-                  <i class="ri-wallet-line"></i>
+                  <i className="ri-wallet-line"></i>
                 </span>
                 <span className="wltCntText">
                   {currentAccount.slice(0, 10) + "..."}
@@ -186,7 +186,7 @@ const Header = () => {
                 onClick={btnhandler}
               >
                 <span>
-                  <i class="ri-wallet-line"></i>
+                  <i className="ri-wallet-line"></i>
                 </span>
                 <span className="wltCntText">Connect Wallet</span>
               </button>
@@ -196,7 +196,7 @@ const Header = () => {
             {/* <Connect2Phantom/> */}
 
             <span className="mobile__menu">
-              <i class="ri-menu-line" onClick={toggleMenu}></i>
+              <i className="ri-menu-line" onClick={toggleMenu}></i>
             </span>
           </div>
         </div>

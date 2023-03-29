@@ -39,12 +39,14 @@ const NftCard = (props) => {
         </div>
 
         <div className=" mt-3 d-flex align-items-center justify-content-center">
-          <Link to={`/market/${id}`}><button
-            className="bid__btn d-flex align-items-center gap-1"
-            // onClick={() => setShowModal(true)}
-          >
-            <i class="ri-shopping-bag-line"></i> Buy Now
-          </button></Link>
+          <Link to={`/market/${id}`}>
+            <button
+              className="bid__btn d-flex align-items-center gap-1"
+              // onClick={() => setShowModal(true)}
+            >
+              <i className="ri-shopping-bag-line"></i> Buy Now
+            </button>
+          </Link>
 
           {/* {showModal && <Modal setShowModal={setShowModal} />} */}
         </div>

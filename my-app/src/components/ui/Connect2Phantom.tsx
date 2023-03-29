@@ -42,12 +42,12 @@ const Connect2Phantom: FC = () => {
     }, []);
 
     useEffect(() => {
-        console.log(pubKey?.toBase58());
+        // console.log(pubKey?.toBase58());
     },[pubKey])
 
     useEffect( () => {
         provider?.on("connect", (publicKey: PublicKey)=>{ 
-            console.log(`connect event: ${publicKey}`);
+            // console.log(`connect event: ${publicKey}`);
             setConnected(true); 
             setPubKey(publicKey);
         });

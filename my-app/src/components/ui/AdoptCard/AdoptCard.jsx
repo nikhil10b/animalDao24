@@ -35,7 +35,7 @@ const AdoptCard = (props) => {
           <Link to={`/adopt/${id}`}>
             {" "}
             <button className="bid__btn d-flex align-items-center gap-1">
-              <i class="ri-shopping-bag-line"></i> Adopt Now
+              <i className="ri-shopping-bag-line"></i> Adopt Now
             </button>
           </Link>
         </div>
