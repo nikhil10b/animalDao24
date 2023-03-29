@@ -4,8 +4,8 @@ import CommonSection from "../components/ui/CommonSection/CommonSection";
 import { useParams } from "react-router-dom";
 import { Container, Row, Col } from "reactstrap";
 import { DonateData } from "../assets/data/donatedata";
-import { onValue, ref } from 'firebase/database';
-import { db } from '../firebase';
+import { onValue, ref } from "firebase/database";
+import { db } from "../firebase";
 import creatorImg from "../assets/images/ava-01.png";
 
 import LiveAuction from "../components/ui/LiveAuction/LiveAuction";
@@ -14,23 +14,23 @@ import "../styles/nft-details.css";
 
 import { Link } from "react-router-dom";
 const DonateDetail = () => {
-      const { id } = useParams();
+  const { id } = useParams();
 
   const [reload, setReload] = useState(true);
   const [singleFormData, setFormData] = useState([]);
-  if(singleFormData===[]){
-    setReload(false)
+  if (singleFormData === []) {
+    setReload(false);
   }
-  useEffect(() => { 
-    onValue(ref(db , `/nft/${id-1}`),(snapshot)=>{ 
+  useEffect(() => {
+    onValue(ref(db, `/nft/${id - 1}`), (snapshot) => {
       //const data = snapshot.val();
       setFormData(DonateData);
       console.log(singleFormData);
     });
-  }, [reload , id , singleFormData]);
+  }, [reload, id, singleFormData]);
 
   return (
-      <>
+    <>
       <CommonSection title={singleFormData.title} />
 
       <section>
@@ -92,7 +92,7 @@ const DonateDetail = () => {
 
       <LiveAuction />
     </>
-  )
-}
+  );
+};
 
 export default DonateDetail;

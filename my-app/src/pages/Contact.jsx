@@ -9,7 +9,7 @@ const Contact = () => {
   const subjectRef = useRef("");
   const messageRef = useRef("");
   const [{ address }] = useStateValue();
-  console.log(address) ;
+  console.log(address);
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -23,11 +23,13 @@ const Contact = () => {
             <Col lg="6" md="6" className="m-auto text-center">
               <h2>Tell us about a new Animal we can help!!</h2>
               <p>
-               Drop information about a stray animal you have seen and think we can help finding a new home!! Provide us detailed information about the animal like photos, breed etc.
+                Drop information about a stray animal you have seen and think we
+                can help finding a new home!! Provide us detailed information
+                about the animal like photos, breed etc.
               </p>
               <div className="contact mt-4">
                 <form onSubmit={handleSubmit}>
-                <div className="form__input">
+                  <div className="form__input">
                     <input
                       type="text"
                       placeholder="Wallet Address"
@@ -66,7 +68,8 @@ const Contact = () => {
                   </div>
                   <div className="form__input">
                     <input
-                      type="text"s
+                      type="text"
+                      s
                       placeholder="Enter the breed of the animal"
                       ref={subjectRef}
                     />

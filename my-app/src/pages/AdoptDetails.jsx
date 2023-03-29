@@ -3,8 +3,8 @@ import CommonSection from "../components/ui/CommonSection/CommonSection";
 import { useParams } from "react-router-dom";
 import { Container, Row, Col } from "reactstrap";
 // import { ADOPT__DATA } from "../assets/data/data";
-import { onValue, ref } from 'firebase/database';
-import { db } from '../firebase';
+import { onValue, ref } from "firebase/database";
+import { db } from "../firebase";
 import creatorImg from "../assets/images/ava-01.png";
 
 import "../styles/nft-details.css";
@@ -26,16 +26,16 @@ const AdoptDetails = () => {
 
   const [reload, setReload] = useState(true);
   const [singleFormData, setFormData] = useState([]);
-  if(singleFormData===[]){
-    setReload(false)
+  if (singleFormData === []) {
+    setReload(false);
   }
-  useEffect(() => { 
-    onValue(ref(db , `/adopt/${id-1}`),(snapshot)=>{
+  useEffect(() => {
+    onValue(ref(db, `/adopt/${id - 1}`), (snapshot) => {
       const data = snapshot.val();
       setFormData(data);
       console.log(singleFormData);
     });
-  }, [reload , id , singleFormData]);
+  }, [reload, id, singleFormData]);
 
   return (
     <>
@@ -101,11 +101,12 @@ const AdoptDetails = () => {
             <Col lg="6" md="6" className="m-auto text-center">
               <h2>Tell us about yourself!!</h2>
               <p>
-               Drop information about you so that you can adopt this animal as your pet.
+                Drop information about you so that you can adopt this animal as
+                your pet.
               </p>
               <div className="contact mt-4">
                 <form onSubmit={handleSubmit}>
-                <div className="form__input">
+                  <div className="form__input">
                     <input
                       type="text"
                       placeholder="Wallet Address"

@@ -4,57 +4,57 @@ import DonateCard from "../components/ui/DonateCard/DonateCard";
 import { DonateData } from "../assets/data/donatedata.js";
 import { Container, Row, Col } from "reactstrap";
 import "../styles/market.css";
-import { onValue, ref } from 'firebase/database';
-import { db } from '../firebase';
-
+import { onValue, ref } from "firebase/database";
+import { db } from "../firebase";
 
 const DonatePage = () => {
-      // const [data, setData] = useState(DonateData);
-      const handleCategory = () => {};
-      const handleItems = () => {};
-    
-      const [reload, setReload] = useState(true);
-      const [formData, setFormData] = useState([]);
-      if(formData===[]){
-        setReload(false)
-      }
-      useEffect(() => { 
-        onValue(ref(db , '/nft/'),(snapshot)=>{
-          const data = snapshot.val();
-          setFormData(data);
-        });
-        console.log(formData);
-      }, [reload , formData]);
-    
-    
-      // const handleSort = (e) => {
-      //   const filterValue = e.target.value;
-    
-      //   if (filterValue === "high") {
-      //     const filterData = DonateData.filter((item) => item.currentBid >= 6);
-    
-      //     //setData(filterData);
-      //   }
-    
-      //   if (filterValue === "mid") {
-      //     const filterData = DonateData.filter(
-      //       (item) => item.currentBid >= 5.5 && item.currentBid < 6
-      //     );
-    
-      //     setData(filterData);
-      //   }
-    
-      //   if (filterValue === "low") {
-      //     const filterData = DonateData.filter(
-      //       (item) => item.currentBid >= 4.89 && item.currentBid < 5.5
-      //     );
-    
-      //     setData(filterData);
-      //   }
-      // };
+  // const [data, setData] = useState(DonateData);
+  const handleCategory = () => {};
+  const handleItems = () => {};
+
+  const [reload, setReload] = useState(true);
+  const [formData, setFormData] = useState([]);
+  if (formData === []) {
+    setReload(false);
+  }
+  useEffect(() => {
+    onValue(ref(db, "/nft/"), (snapshot) => {
+      const data = snapshot.val();
+      setFormData(data);
+    });
+    console.log(formData);
+  }, [reload, formData]);
+
+  // const handleSort = (e) => {
+  //   const filterValue = e.target.value;
+
+  //   if (filterValue === "high") {
+  //     const filterData = DonateData.filter((item) => item.currentBid >= 6);
+
+  //     //setData(filterData);
+  //   }
+
+  //   if (filterValue === "mid") {
+  //     const filterData = DonateData.filter(
+  //       (item) => item.currentBid >= 5.5 && item.currentBid < 6
+  //     );
+
+  //     setData(filterData);
+  //   }
+
+  //   if (filterValue === "low") {
+  //     const filterData = DonateData.filter(
+  //       (item) => item.currentBid >= 4.89 && item.currentBid < 5.5
+  //     );
+
+  //     setData(filterData);
+  //   }
+  // };
   return (
-      <>
-      <CommonSection title={"Donate for Endangered Animals By buying cool NFTs"} />
+    <>
+      <CommonSection
+        title={"Donate for Endangered Animals By buying cool NFTs"}
+      />
 
       <section>
         <Container>
@@ -95,14 +95,14 @@ const DonatePage = () => {
 
             {DonateData?.map((item) => (
               <Col lg="3" md="4" sm="6" className="mb-4" key={item.id}>
-                <DonateCard item ={item}/>
+                <DonateCard item={item} />
               </Col>
             ))}
           </Row>
         </Container>
       </section>
     </>
-  )
-}
+  );
+};
 
 export default DonatePage;

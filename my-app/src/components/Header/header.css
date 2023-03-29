@@ -130,6 +130,7 @@
   object-fit: cover;
 }
 
-.wltCntText, .nav__right button {
+.wltCntText,
+.nav__right button {
   font-size: 15px;
 }

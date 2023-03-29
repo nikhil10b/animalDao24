@@ -76,8 +76,9 @@ const Footer = () => {
                 AnimalCareDAO
               </h2>
               <p>
-              The number of endangered animals is increasing, and the condition of stray animals is getting worse daily.
-                So, we have made a community-driven DAO dApp for the welfare of the animals. 
+                The number of endangered animals is increasing, and the
+                condition of stray animals is getting worse daily. So, we have
+                made a community-driven DAO dApp for the welfare of the animals.
               </p>
             </div>
           </Col>
@@ -150,8 +151,7 @@ const Footer = () => {
           <Col lg="12" className=" mt-4 text-center">
             <p className="copyright">
               {" "}
-              Copyrights 2022, Developed by Server Geeks.
-              All Rights Reserved.{" "}
+              Copyrights 2022, Developed by Server Geeks. All Rights Reserved.{" "}
             </p>
           </Col>
         </Row>

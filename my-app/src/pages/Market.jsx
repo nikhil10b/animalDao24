@@ -5,11 +5,10 @@ import NftCard from "../components/ui/NftCard/NftCard";
 //import { NFT__DATA } from "../assets/data/data";
 import { Container, Row, Col } from "reactstrap";
 import "../styles/market.css";
-import { onValue, ref } from 'firebase/database';
-import { db } from '../firebase';
+import { onValue, ref } from "firebase/database";
+import { db } from "../firebase";
 
 // const storage = getStorage();
-
 
 const Market = () => {
   // const [data, setData] = useState(NFT__DATA);
@@ -18,17 +17,16 @@ const Market = () => {
 
   const [reload, setReload] = useState(true);
   const [formData, setFormData] = useState([]);
-  if(formData===[]){
-    setReload(false)
+  if (formData === []) {
+    setReload(false);
   }
-  useEffect(() => { 
-    onValue(ref(db , '/nft/'),(snapshot)=>{
+  useEffect(() => {
+    onValue(ref(db, "/nft/"), (snapshot) => {
       const data = snapshot.val();
       setFormData(data);
     });
     console.log(formData);
-  }, [reload , formData]);
-
+  }, [reload, formData]);
 
   // const handleSort = (e) => {
   //   const filterValue = e.target.value;
@@ -58,7 +56,9 @@ const Market = () => {
 
   return (
     <>
-      <CommonSection title={"Donate for Endangered Animals By buying cool NFTs"} />
+      <CommonSection
+        title={"Donate for Endangered Animals By buying cool NFTs"}
+      />
 
       <section>
         <Container>

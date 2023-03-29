@@ -9,10 +9,9 @@ import { ethers } from "ethers";
 // import { WalletContext } from "../../context/WalletContext";
 import logoImg from "../../assets/images/1.png";
 import { NavLink } from "react-router-dom";
-import swal from 'sweetalert';
+import swal from "sweetalert";
 // import { useStateValue } from "../../StateProvider";
 // import Connect2Phantom from "../ui/Connect2Phantom.tsx";
-
 
 const NAV__LINKS = [
   {
@@ -55,42 +54,40 @@ const Header = () => {
   //   Balance: null,
   // });
 
-  const [currentAccount,setAccount] = useState('');
-  const [balance,setBalance] = useState('');
-  
+  const [currentAccount, setAccount] = useState("");
+  const [balance, setBalance] = useState("");
 
   const btnhandler = () => {
-
     // Asking if metamask is already present or not
     if (window.ethereum) {
-    // res[0] for fetching a first wallet
-    window.ethereum.on('connect', () => { console.log("connected")});
-  
-    window.ethereum
-      .request({ method: "eth_requestAccounts" })
-      .then((res) => accountChangeHandler(res[0]));
+      // res[0] for fetching a first wallet
+      window.ethereum.on("connect", () => {
+        console.log("connected");
+      });
+
+      window.ethereum
+        .request({ method: "eth_requestAccounts" })
+        .then((res) => accountChangeHandler(res[0]));
     } else {
-    alert("install metamask extension!!");
+      alert("install metamask extension!!");
     }
   };
 
   const getbalance = (address) => {
     window.ethereum
-    .request({
-      method: "eth_getBalance",
-      params: [address, "latest"]
-    })
-    .then((balance) => {
-      setBalance(ethers.utils.formatEther(balance));
-    });
+      .request({
+        method: "eth_getBalance",
+        params: [address, "latest"],
+      })
+      .then((balance) => {
+        setBalance(ethers.utils.formatEther(balance));
+      });
   };
-  
+
   const accountChangeHandler = (account) => {
     setAccount(account);
     getbalance(account);
   };
-
-
 
   const disconnectAccount = () => {
     swal({
@@ -99,16 +96,15 @@ const Header = () => {
       icon: "warning",
       buttons: true,
       dangerMode: true,
-    })
-    .then((willDelete) => {
+    }).then((willDelete) => {
       if (willDelete) {
         swal("You have been Logged Out!", {
           icon: "success",
         });
-        setAccount('');
+        setAccount("");
       }
     });
-	}
+  };
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -139,7 +135,7 @@ const Header = () => {
             <h4 className="d-flex gap-2 align-items-center ">
               <span>
                 {/* <i class="ri-fire-fill"></i> */}
-                <img src={logoImg} className='logoImg' alt='logoImg'/>
+                <img src={logoImg} className="logoImg" alt="logoImg" />
               </span>
               AnimalCareDAO
             </h4>
@@ -160,28 +156,42 @@ const Header = () => {
                 </li>
               ))}
               <li className="nav__item">
-                <a href="https://docs.google.com/document/d/1mCpw7SQ1FIN1BiW9scCuJSZf7w9i3yxKiYV1w9xEczs/edit?usp=sharing" target="_blank" rel="noreferrer">Whitepaper</a>
+                <a
+                  href="https://docs.google.com/document/d/1mCpw7SQ1FIN1BiW9scCuJSZf7w9i3yxKiYV1w9xEczs/edit?usp=sharing"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Whitepaper
+                </a>
               </li>
             </ul>
           </div>
 
           <div className="nav__right d-flex align-items-center gap-5 ">
-            {(currentAccount !== '') ? (
-              <button className="btn d-flex gap-2 align-items-center " onClick={disconnectAccount}>
+            {currentAccount !== "" ? (
+              <button
+                className="btn d-flex gap-2 align-items-center "
+                onClick={disconnectAccount}
+              >
                 <span>
                   <i class="ri-wallet-line"></i>
                 </span>
-                <span className='wltCntText'>{currentAccount.slice(0,10) + "..."}</span>
+                <span className="wltCntText">
+                  {currentAccount.slice(0, 10) + "..."}
+                </span>
               </button>
-            ): (
-              <button className="btn d-flex gap-2 align-items-center" onClick={btnhandler}>
+            ) : (
+              <button
+                className="btn d-flex gap-2 align-items-center"
+                onClick={btnhandler}
+              >
                 <span>
                   <i class="ri-wallet-line"></i>
                 </span>
-                <span className='wltCntText'>Connect Wallet</span>
+                <span className="wltCntText">Connect Wallet</span>
               </button>
             )}
-            
+
             {/* <Web3Button /> */}
             {/* <Connect2Phantom/> */}
 

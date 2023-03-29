@@ -28,17 +28,15 @@ const AdoptCard = (props) => {
               <h6>Created By</h6>
               <p>{name}</p>
             </div>
-
           </div>
         </div>
 
         <div className=" mt-3 d-flex align-items-center justify-content-center">
-         
-        <Link to={`/adopt/${id}`}> <button
-            className="bid__btn d-flex align-items-center gap-1">
-            
-            <i class="ri-shopping-bag-line"></i> Adopt Now
-          </button>
+          <Link to={`/adopt/${id}`}>
+            {" "}
+            <button className="bid__btn d-flex align-items-center gap-1">
+              <i class="ri-shopping-bag-line"></i> Adopt Now
+            </button>
           </Link>
         </div>
       </div>

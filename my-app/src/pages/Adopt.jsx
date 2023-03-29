@@ -4,8 +4,8 @@ import AdoptCard from "../components/ui/AdoptCard/AdoptCard";
 // import { ADOPT__DATA } from "../assets/data/data";
 import { Container, Row, Col } from "reactstrap";
 import "../styles/market.css";
-import { onValue, ref } from 'firebase/database';
-import { db } from '../firebase';
+import { onValue, ref } from "firebase/database";
+import { db } from "../firebase";
 
 const Adopt = () => {
   // const [data, setData] = useState(ADOPT__DATA);
@@ -14,16 +14,16 @@ const Adopt = () => {
 
   const [reload, setReload] = useState(true);
   const [formData, setFormData] = useState([]);
-  if(formData===[]){
-    setReload(false)
+  if (formData === []) {
+    setReload(false);
   }
-  useEffect(() => { 
-    onValue(ref(db , '/adopt/'),(snapshot)=>{
+  useEffect(() => {
+    onValue(ref(db, "/adopt/"), (snapshot) => {
       const data = snapshot.val();
       setFormData(data);
     });
     console.log(formData);
-  }, [reload,formData]);
+  }, [reload, formData]);
 
   return (
     <>
