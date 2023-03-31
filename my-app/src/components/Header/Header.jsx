@@ -56,20 +56,28 @@ const Header = () => {
 
   const [currentAccount, setAccount] = useState("");
   const [balance, setBalance] = useState("");
+  const [walletAddress, setWalletAddress] =useState(null)
 
   const btnhandler = () => {
     // Asking if metamask is already present or not
-    if (window.ethereum) {
-      // res[0] for fetching a first wallet
-      window.ethereum.on("connect", () => {
-        console.log("connected");
-      });
+    window.onload = async function (){
+      try{
+        if(window.solana){
+          const solana = window.solana
+          if (solana.isphantom){
+            console.log('Phantom wallet found!')
+            const res = await solana.connect({onlyIftrusted: true})
+            console.log('connected with Public Key:', res.publicKey.toString())
+            setWalletAddress(res.publicKey.toString())
+          }
+          
 
-      window.ethereum
-        .request({ method: "eth_requestAccounts" })
-        .then((res) => accountChangeHandler(res[0]));
-    } else {
-      alert("install metamask extension!!");
+          }else{
+            alert('Wallet not found! Get a phantom Wallet')
+        }
+      } catch(error){
+        console.error(error)
+      }
     }
   };
 
