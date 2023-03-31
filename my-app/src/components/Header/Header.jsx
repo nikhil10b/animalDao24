@@ -56,63 +56,67 @@ const Header = () => {
 
   const [currentAccount, setAccount] = useState("");
   const [balance, setBalance] = useState("");
-  const [walletAddress, setWalletAddress] =useState(null)
+  const [walletAddress, setWalletAddress] = useState(null);
 
   const btnhandler = () => {
-    // Asking if metamask is already present or not
+    // Asking if phantom is already present or not
     window.onload = async function (){
-      try{
-        if(window.solana){
+      try {
+        if(window.solana)
+        {
           const solana = window.solana
-          if (solana.isphantom){
+          if (solana.isPhantom)
+          {
             console.log('Phantom wallet found!')
             const res = await solana.connect({onlyIftrusted: true})
             console.log('connected with Public Key:', res.publicKey.toString())
             setWalletAddress(res.publicKey.toString())
           }
-          
-
-          }else{
+        }
+          else{
             alert('Wallet not found! Get a phantom Wallet')
         }
-      } catch(error){
-        console.error(error)
+      
+      } catch (error) {
+        console.log(error);
       }
+       
+    console.log("connected");
     }
   };
 
-  const getbalance = (address) => {
-    window.ethereum
-      .request({
-        method: "eth_getBalance",
-        params: [address, "latest"],
-      })
-      .then((balance) => {
-        setBalance(ethers.utils.formatEther(balance));
-      });
-  };
+  // const getbalance = (address) => {
+  //   window.ethereum
+  //     .request({
+  //       method: "eth_getBalance",
+  //       params: [address, "latest"],
+  //     })
+  //     .then((balance) => {
+  //       setBalance(ethers.utils.formatEther(balance));
+  //     });
+  // };
 
-  const accountChangeHandler = (account) => {
-    setAccount(account);
-    getbalance(account);
-  };
+  // const accountChangeHandler = (account) => {
+  //   setAccount(account);
+  //   getbalance(account);
+  // };
 
-  const disconnectAccount = () => {
-    swal({
-      title: "Are you sure?",
-      text: "You will be logged out of your Metamask wallet",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    }).then((willDelete) => {
-      if (willDelete) {
-        swal("You have been Logged Out!", {
-          icon: "success",
-        });
-        setAccount("");
-      }
-    });
-  };
+  // const disconnectAccount = () => {
+  //   swal({
+  //     title: "Are you sure?",
+  //     text: "You will be logged out of your Metamask wallet",
+  //     icon: "warning",
+  //     buttons: true,
+  //     dangerMode: true,
+  //   }).then((willDelete) => {
+  //     if (willDelete) {
+  //       swal("You have been Logged Out!", {
+  //         icon: "success",
+  //       });
+  //       setAccount("");
+  //     }
+  //   });
+  // };
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -127,7 +131,7 @@ const Header = () => {
     });
 
     return () => {
-      window.removeEventListener("scroll",null);
+      window.removeEventListener("scroll", null);
     };
   }, []);
   // const truncate = (input) =>
